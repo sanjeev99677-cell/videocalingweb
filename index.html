@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Call App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="top-bar">
+      <h1>Video Calling App</h1>
+      <div class="top-actions">
+        <div class="room-link">Room ID: <span id="roomId"></span></div>
+        <button id="darkModeBtn" class="small-btn">Dark Mode</button>
+      </div>
+    </div>
+
+    <div class="main-layout">
+      <div class="left-panel">
+        <div class="user-form">
+          <input type="text" id="username" placeholder="Enter your name" maxlength="20" />
+          <button id="saveNameBtn">Save Name</button>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="avatar-overlay" id="localAvatarOverlay">
+              <div class="avatar-circle" id="localAvatarCircle">Y</div>
+              <div class="avatar-name" id="localAvatarName">You</div>
+            </div>
+            <video id="localVideo" autoplay playsinline muted></video>
+            <div class="video-label" id="localLabel">You</div>
+          </div>
+
+          <div class="video-card">
+            <div class="avatar-overlay" id="remoteAvatarOverlay">
+              <div class="avatar-circle" id="remoteAvatarCircle">R</div>
+              <div class="avatar-name" id="remoteAvatarName">Remote User</div>
+            </div>
+            <video id="remoteVideo" autoplay playsinline></video>
+            <div class="video-label" id="remoteLabel">Remote User</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="muteBtn">Mute</button>
+          <button id="cameraBtn">Camera Off</button>
+          <button id="fullscreenLocalBtn">Full Local</button>
+          <button id="fullscreenRemoteBtn">Full Remote</button>
+          <button id="endCallBtn" class="danger">End Call</button>
+        </div>
+
+        <div class="status-box" id="status">Connecting...</div>
+      </div>
+
+      <div class="right-panel">
+        <div class="chat-header">Live Chat</div>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="chat-controls">
+          <div class="emoji-box" id="emojiBox">
+            <span class="emoji">😀</span>
+            <span class="emoji">😂</span>
+            <span class="emoji">😍</span>
+            <span class="emoji">😎</span>
+            <span class="emoji">😭</span>
+            <span class="emoji">👍</span>
+            <span class="emoji">❤️</span>
+            <span class="emoji">🔥</span>
+            <span class="emoji">🙏</span>
+            <span class="emoji">🎉</span>
+            <span class="emoji">😢</span>
+            <span class="emoji">😡</span>
+          </div>
+
+          <div class="chat-input-row">
+            <button id="emojiBtn">😊</button>
+            <input type="text" id="chatInput" placeholder="Type a message..." />
+            <button id="sendBtn">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incoming Call Popup -->
+  <div class="call-popup hidden" id="incomingCallPopup">
+    <div class="popup-card">
+      <div class="popup-avatar" id="popupAvatar">R</div>
+      <h2>Incoming Call</h2>
+      <p id="incomingCallerName">Remote User is calling...</p>
+      <div class="popup-actions">
+        <button id="acceptCallBtn" class="accept-btn">Accept</button>
+        <button id="rejectCallBtn" class="reject-btn">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.scaledrone.com/scaledrone.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
